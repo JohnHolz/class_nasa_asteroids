@@ -1,0 +1,9 @@
+version: "3"
+services:
+  web:
+    restart: always
+    build: .
+    ports:
+      - "8880:8880"
+    volumes:
+      - .:/code
