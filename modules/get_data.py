@@ -6,8 +6,8 @@ def get_data(first_columns = 6):
 
 def transform_dummies(df):
     df.neo = make_dummies(df.neo)
-    df.pha = make_dummies(df.pha)
     return df
+    # new_df
 
 def drop_bad_columns(df):
     columns_to_drop = ['orbit_id',
@@ -19,13 +19,29 @@ def drop_bad_columns(df):
 
 def get_clean_data_for_ml():
     df = get_data()
-    df = transform_dummies(df)
     df = drop_bad_columns(df)
-    return df
+    return transform_dummies(df)
 
-def get_x_y():
+def get_x_y_no_NaNs():
     df = get_clean_data_for_ml()
-    y = df['class']
-    x = df.drop('class',axis=1)
+
+    now_NaN_columns = ["neo","tp_cal",
+    "tp","class",
+    "w","om","i","q","a","e",
+    "n","epoch_cal","epoch_mjd","epoch","pha"]
+
+    #ret = pd.concat([df,make_dummies(df['class'])],axis=1)
+    ret = df[now_NaN_columns]
+    ret = ret[ret['pha'].notna()]
+
+    y = ret['pha']
+    x = ret.drop(['pha'],axis=1)
+    
     return x,y 
 
+## for later
+def get_x_y():
+    df = get_clean_data_for_ml()
+    y = df['pha']
+    x = df.drop('pha',axis=1)
+    return x,y 
