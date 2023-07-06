@@ -61,6 +61,9 @@ n: 958_524
 p: 44?
 
 
+per,per_y,rms,H - drop all na rows
+
+
 svm needs scaling
 knn needs scaling
 random forest ?

@@ -42,6 +42,10 @@ def get_x_y_no_NaNs():
 ## for later
 def get_x_y():
     df = get_clean_data_for_ml()
+    columns = ['pha','ma','per','per_y','rms','H']
+    for i in columns:
+        df = df[df[i].notna()]
+
     y = df['pha']
     x = df.drop('pha',axis=1)
     return x,y 
