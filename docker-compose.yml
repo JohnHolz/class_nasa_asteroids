@@ -1,9 +1,59 @@
-version: "3"
+version: '3.8'
+
 services:
-  web:
-    restart: always
+  tensorflow_and_pytorch:
     build: .
+    image: borundev/deep_learning_jupyter
+    container_name: tensorflow_and_pytorch
+    init: true
     ports:
-      - "8880:8880"
+       - 8888:8890
+    user: $NB_UID:$NB_GID
+    working_dir: /home/${NB_USER}
     volumes:
-      - .:/code
+      - ${NOTEBOOKS_FOLDER}:/home/${NB_USER}
+      - /etc/group:/etc/group:ro
+      - /etc/passwd:/etc/passwd:ro
+      - /etc/shadow:/etc/shadow:ro
+    command: "--NotebookApp.base_url='tensorflow_and_pytorch'"
+    environment:
+      - JUPYTER_CONFIG_DIR=/home/${NB_USER}
+      - PYTORCH_DATA=/home/${NB_USER}/pytorch_data
+      - TENSORFLOW_DATA=/home/${NB_USER}/tensorflow_data
+    labels:
+      - log.level=debug
+      - traefik.enable=true
+      - traefik.frontend.rule=Host:${HOSTNAME};PathPrefix:/tensorflow_and_pytorch/
+      - traefik.frontend.auth.basic=${ML_HTTP_USER}:${ML_HTTP_AUTH_PASS_ENC}
+    networks:
+      - traefik_default
+
+  tensorboard:
+    build: .
+    image: borundev/deep_learning_jupyter
+    container_name: tensorboard
+    user: $NB_UID:$NB_GID
+    working_dir: /home/${NB_USER}
+    volumes:
+      - ${NOTEBOOKS_FOLDER}:/home/${NB_USER}
+      - /etc/group:/etc/group:ro
+      - /etc/passwd:/etc/passwd:ro
+      - /etc/shadow:/etc/shadow:ro
+    ports:
+      - 6006:8891
+    entrypoint: []
+    command: tensorboard --logdir=tensorboard/runs --port=8888 --bind_all --path_prefix=/tensorboard/
+    ipc: host
+    labels:
+      - log.level=debug
+      - traefik.enable=true
+      - traefik.frontend.rule=Host:${HOSTNAME};PathPrefix:/tensorboard/
+      - traefik.frontend.auth.basic=${ML_HTTP_USER}:${ML_HTTP_AUTH_PASS_ENC}
+    networks:
+      - traefik_default
+
+
+networks:
+  traefik_default:
+    external:
+      name: traefik

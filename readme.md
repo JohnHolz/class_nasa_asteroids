@@ -1,12 +1,6 @@
-#####
 
-Estrutura
+            nvidia-docker run -d --name tensor -e PASSWORD='winrar'\ -p 8888:8888 -p 6006:6006 gcr.io/tensorflow/tensorflow:latest-gpu-py3
 
-- Metadados
-- Limpeza
-- Benchmark
-- Modelo 2
-- Rede
 
 ## Metadados
 
@@ -72,3 +66,13 @@ tf better with scalling
 
 
 y -> classes que começam com A, pois tem Near-Earth 
+
+
+Estrutura
+
+- Metadados
+- Limpeza
+- Benchmark
+- Modelo 2
+- Rede
+
