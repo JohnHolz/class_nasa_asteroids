@@ -48,3 +48,17 @@ def get_x_y():
     y = df['pha']
     x = df.drop('pha',axis=1)
     return x,y 
+
+
+def get_x_y_test():
+    df = get_clean_data_for_ml()
+    columns = ['pha','ma','per','per_y','rms','H']
+    for i in columns:
+        df = df[df[i].notna()]
+
+    y = df['pha']
+    x = df.drop('pha',axis=1)
+    x = pd.concat([x,make_dummies(x['class'])],axis=1)
+    y = make_dummies(y)
+    x.drop('class',axis=1,inplace=True)
+    return x,y 
