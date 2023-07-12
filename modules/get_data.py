@@ -7,7 +7,6 @@ def get_data(first_columns = 6):
 def transform_dummies(df):
     df.neo = make_dummies(df.neo)
     return df
-    # new_df
 
 def drop_bad_columns(df):
     columns_to_drop = ['orbit_id',

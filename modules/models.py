@@ -16,10 +16,10 @@ softmax = 'softmax'
 sigmoid = 'sigmoid'
 
 def model_3():
-    model_3 = tf.keras.Sequential()
-    model_3.add(tf.keras.layers.Dense(8, activation='relu', input_shape=(43,)))
-    model_3.add(tf.keras.layers.Dense(16, activation='relu'))
-    model_3.add(tf.keras.layers.Dense(10, activation='relu'))
-    model_3.add(tf.keras.layers.Dense(1, activation='sigmoid'))#sigmoid
-    model_3.compile(loss=BC, optimizer=adam, metrics=[tf.keras.metrics.Precision(),'accuracy'])
-    return model_3
+    model = tf.keras.Sequential()
+    model.add(tf.keras.layers.Dense(8, activation='relu', input_shape=(43,)))
+    model.add(tf.keras.layers.Dense(16, activation='relu'))
+    model.add(tf.keras.layers.Dense(10, activation='relu'))
+    model.add(tf.keras.layers.Dense(1, activation='sigmoid'))#sigmoid
+    model.compile(loss=BC, optimizer=adam, metrics=[tf.keras.metrics.Precision(),'accuracy'])
+    return model
