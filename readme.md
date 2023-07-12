@@ -1,5 +1,8 @@
+# Trabalho final
 
-            nvidia-docker run -d --name tensor -e PASSWORD='winrar'\ -p 8888:8888 -p 6006:6006 gcr.io/tensorflow/tensorflow:latest-gpu-py3
+
+
+
 
 
 ## Metadados
@@ -75,4 +78,12 @@ Estrutura
 - Benchmark
 - Modelo 2
 - Rede
+
+
+## Rode você mesmo
+
+Existe um arquivo requirements no docker pra replicar o ambiente. Porem com docker você pode não conseguir utilizar a gpu, o só faz levar mais tempo.
+
+        docker-compose up -d 
+        
 
