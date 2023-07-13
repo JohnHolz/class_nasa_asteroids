@@ -7,6 +7,10 @@ p: 45-6(colunas nome/id)
 
 ## Matrix de correlação
 
+![images/output_7_1.png](images/output_7_1.png)
+![images/output_9_1.png](images/output_9_1.png)
+![images/output_9_1.png](images/output_9_1.png)
+
 ## Variavel Resposta com as variaveis de classe
 
 | pha\class | AMO  | APO   | AST | ATE  | CEN | HYA | IEO | IMB   | MBA    | MCA   | OMB   | TJN  | TNO  |

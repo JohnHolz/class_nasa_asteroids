@@ -24,7 +24,7 @@ def get_clean_data_for_ml():
 
 def get_x_y(as_numpy=False):
     df = get_clean_data_for_ml()
-    columns = ["pha", "ma", "per", "per_y", "rms", "H"]
+    columns = ["pha", "ma", "per", "rms", "H"]
     columns_linear_depen = ["epoch_mjd", "epoch_cal", "tp_cal", "per_y", "moid_ld"]
     df.drop(columns_linear_depen, axis=1, inplace=True)
 
