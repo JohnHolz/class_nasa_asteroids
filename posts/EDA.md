@@ -1,26 +1,48 @@
-# Análise Exploratória
+<h1 style="text-align: center;">Análise Exploratória</h1>
+
+No final do artigo anterior ficamos com o dataset no seguinte formato.
+
+<table>
+<tr><th> n x p shape </th><th> Imbalanced Classes  </th></tr>
+<tr><td>
 
 | n       | p   |
 | ------- | --- |
 | 958_524 | 39  |
+| \*      |
 
-## Class x Tabela
+</td><td>
 
 | Class | qtd     |
 | ----- | ------- |
 | Y     | 958.524 |
 | N     | 2066    |
 
-## Matrix de correlação
+</td></tr> </table>
+
+<h2 style="text-align: left;">Matrix de correlação</h2>
 
 ![images/output_7_1.png](images/output_7_1.png)
 
 #### Vamos dropar as colunas linearmente dependentes, ficamos nós resta agoraFicamos com
 
+<table>
+<tr><th> n x p shape </th><th> Imbalanced Classes  </th></tr>
+<tr><td>
+
+| n       | p   |
+| ------- | --- |
+| 938.598 | 34  |
+| \*      |
+
+</td><td>
+
 | Class | qtd     |
 | ----- | ------- |
 | Y     | 936.532 |
 | N     | 2066    |
+
+</td></tr> </table>
 
 ## Variavel Resposta com as variaveis de classe
 
@@ -48,9 +70,29 @@ Outra descoberta boa, só temos pha = Y em casos de NEO = 1.
 Pensando como arvore:
 Já sabemos que caso class not in [AMO, APO, ATE, IEO] e neo != 1 já declaramos como não perigoso, caso contrario teremos mais avaliações.
 
-## Outras variaveis
+### Quando não temos classe temos 2 tipos de variaveis
 
-| Type    | Variaveis | Exemple plot                                     |
-| ------- | --------- | ------------------------------------------------ |
-| Escalar |           | ![images/output_9_1.png](images/output_9_1.png)  |
-| Angular |           | ![images/output_9_1.png](images/output_10_1.png) |
+| Type               | Intervalo       | Exemple plot                                     |
+| ------------------ | --------------- | ------------------------------------------------ |
+| Angular (ma, om)   | $[0,360]$       | ![images/output_9_1.png](images/output_10_1.png) |
+| Escalar (td resto) | $[-\inf,+\inf]$ | ![images/output_9_1.png](images/output_9_1.png)  |
+
+### Top 5000 rows, melhores formatos de curvas
+
+| a                                                 | sigma_w                                           | e                                                 |
+| ------------------------------------------------- | ------------------------------------------------- | ------------------------------------------------- |
+| ![images/output_20_0.png](images/output_20_0.png) | ![images/output_22_0.png](images/output_22_0.png) | ![images/output_22_0.png](images/output_23_0.png) |
+
+| H                                                 | moid                                              | ma                                                |
+| ------------------------------------------------- | ------------------------------------------------- | ------------------------------------------------- |
+| ![images/output_21_0.png](images/output_21_0.png) | ![images/output_18_0.png](images/output_18_0.png) | ![images/output_19_0.png](images/output_19_0.png) |
+
+## Pairplot
+
+Vemos que temos relações não lineares enter
+
+![images/output_19_0.png](images/output_25_0.png)
+
+## Conclusões
+
+Nosso dataset parece bem limpo e perfeito para aplicarmos qualquer método desejado

@@ -17,6 +17,6 @@ Activations: Relu
 Last Layer: Sigmoid
 Epochs:~50
 
-rf = RandomForestClassifier(n_estimators=80)
-ada = AdaBoostClassifier()
-knn = KNeighborsClassifier()
+    rf = RandomForestClassifier(n_estimators=80)
+    ada = AdaBoostClassifier()
+    knn = KNeighborsClassifier()
