@@ -72,10 +72,10 @@ Já sabemos que caso class not in [AMO, APO, ATE, IEO] e neo != 1 já declaramos
 
 ### Quando não temos classe temos 2 tipos de variaveis
 
-| Type               | Intervalo       | Exemple plot                                     |
-| ------------------ | --------------- | ------------------------------------------------ |
-| Angular (ma, om)   | $[0,360]$       | ![images/output_9_1.png](images/output_10_1.png) |
-| Escalar (td resto) | $[-\inf,+\inf]$ | ![images/output_9_1.png](images/output_9_1.png)  |
+| Type               | Intervalo       | Exemple plot                                      |
+| ------------------ | --------------- | ------------------------------------------------- |
+| Angular (ma, om)   | $[0,360]$       | ![images/output_10_0.png](images/output_10_0.png) |
+| Escalar (td resto) | $[-\inf,+\inf]$ | ![images/output_9_1.png](images/output_9_1.png)   |
 
 ### Top 5000 rows, melhores formatos de curvas
 
