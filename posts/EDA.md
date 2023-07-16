@@ -1,5 +1,13 @@
 <h1 style="text-align: center;">Análise Exploratória</h1>
 
+Table:
+
+1. View geral do dataset
+2. Correlations
+3. Plots
+
+---
+
 No final do artigo anterior ficamos com o dataset no seguinte formato.
 
 <table>
@@ -77,7 +85,9 @@ Já sabemos que caso class not in [AMO, APO, ATE, IEO] e neo != 1 já declaramos
 | Angular (ma, om)   | $[0,360]$       | ![images/output_10_0.png](images/output_10_1.png) |
 | Escalar (td resto) | $[-\inf,+\inf]$ | ![images/output_9_1.png](images/output_9_1.png)   |
 
-### Top 5000 rows, melhores formatos de curvas
+### Top 5000 rows
+
+Separado abaixo estão as melhores variáveis com formatos de curvas para termos uma noção da distribuição dos dados. Vemos que nas distribuições parece que temos muitos pontos saltantes.
 
 | a                                                 | sigma_w                                           | e                                                 |
 | ------------------------------------------------- | ------------------------------------------------- | ------------------------------------------------- |
@@ -89,10 +99,10 @@ Já sabemos que caso class not in [AMO, APO, ATE, IEO] e neo != 1 já declaramos
 
 ## Pairplot
 
-Vemos que temos relações não lineares enter
+Vemos que temos relações não lineares entre variáveis
 
 ![images/output_19_0.png](images/output_25_0.png)
 
 ## Conclusões
 
-Nosso dataset parece bem limpo e perfeito para aplicarmos qualquer método desejado
+Nosso dataset ficou bem limpo e perfeito para aplicarmos qualquer método desejado
