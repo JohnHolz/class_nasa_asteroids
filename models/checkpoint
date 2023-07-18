@@ -1,0 +1,2 @@
+model_checkpoint_path: "tf_model_5layers"
+all_model_checkpoint_paths: "tf_model_5layers"
